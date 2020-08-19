@@ -77,8 +77,8 @@ export default new Vuex.Store({
       .then(res => {
         console.log(res)
         commit('clearAuth')
-          localStorage.clear
-          VueRouter.replace("/home")
+          localStorage.clear()
+          VueRouter.replace("/")
         })
       .catch(error => console.log(error))
     }

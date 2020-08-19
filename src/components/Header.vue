@@ -12,7 +12,7 @@
                 </h3>
                 <img src="../assets/lenovo.png" class="d-inline-block"/>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-8 col-12">
                 <p class="lead header-p">
                     The #smarter you are by choosing &amp; recommending the world’s
                     #1 PC Brand, the more there is in it for you!
@@ -20,14 +20,14 @@
                     incentives and benefits as Lenovo Channel Partners
                 </p>
             </div>
-            <form v-if='!auth' @submit.prevent="onSubmit" method="post" action="https://think-smarter.lenovomeaevents.com/auth/login" class="col-sm-3 text-center">
+            <form v-if='!auth' @submit.prevent="onSubmit" method="post" action="https://think-smarter.lenovomeaevents.com/auth/login" class="col-sm-3 col-12 text-center">
                 <h2>Login Account</h2>
                 <input type="email" name="email" v-model="email" placeholder="Email Address" />
                 <input type="password" name="password" v-model="password" placeholder="Password" />
                 <button type="submit" class="btn btn-danger">Login Account</button>
                 <router-link to="/register-form">Create new account</router-link> 
             </form>
-            <div v-if="auth" class="col-sm-3 text-center justify-content-end welcome-user">
+            <div v-if="auth" class="col-sm-3 col-12 text-center justify-content-end welcome-user">
                 <h3>Welcome {{user}} </h3>
             </div>
             <div class="col-12">
@@ -41,13 +41,15 @@
 export default {
     name: "Header",
     computed: {
-      user () {
-        return this.$store.getters.user
-      },
       auth () {
         return this.$store.getters.ifAuthenticated
       }
     },
+    data () {
+        return {
+            user: this.$store.getters.user.name
+        }
+    }
 }
 </script>
 

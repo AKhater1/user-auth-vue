@@ -12,7 +12,7 @@
                 <router-link to="/sign-in" class="nav-link">Sign In</router-link>
             </li>
             <li v-if='auth' class="nav-item">
-                <ul @click="onLogout" class="nav-link"> Log out</ul>
+                <a @click="onLogout" class="nav-link"> Log out</a>
             </li>
             <li class="nav-item">
                 <router-link to="" class="nav-link">Product Training</router-link>
@@ -65,5 +65,6 @@ export default {
     padding: 8px 12px;
     font-weight: 700;
     font-size: 14px;
+    cursor: pointer;
 }
 </style>

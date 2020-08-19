@@ -12,12 +12,12 @@
                 </h3>
                 <img src="../assets/lenovo.png" class="d-inline-block"/>
             </div>
-            <form method="post" action="https://think-smarter.lenovomeaevents.com/auth/login" class="text-center">
+            <form @submit.prevent="onSubmit" method="post" action="https://think-smarter.lenovomeaevents.com/auth/login" class="text-center">
                 <h2>Login Account</h2>
                 <input type="email" name="email" placeholder="Email Address" />
                 <input type="password" name="password" placeholder="Password" />
                 <button type="submit" class="btn btn-danger w-100">Login Account</button>
-                <router-link to="">Create new account</router-link> 
+                <router-link to="/register-form">Create new account</router-link> 
             </form>    
             <div class="col-12">
                 <img src="../assets/windowslogo.png" />
@@ -31,6 +31,11 @@
 
 export default {
     name: "SignIn",
+    computed: {
+      auth () {
+        return this.$store.getters.ifAuthenticated
+      }
+    },
 }
 </script>
 
